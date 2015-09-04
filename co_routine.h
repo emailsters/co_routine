@@ -18,7 +18,7 @@ typedef void (*RoutineFunc)(Schedule* schedule, void*arg);
 Schedule* CoroutineOpen();
 int CoroutineCreate(Schedule* schedule, RoutineFunc func, void* arg);
 void CoroutineClose(Schedule* schedule);
-int CoroutineResume(Schedule* schedule, int coroutine_id);
+int CoroutineResume(Schedule* schedule, int64_t coroutine_id);
 void CoroutineYield(Schedule* schedule);
 int CoroutineStatus(Schedule* schedule, int64_t coroutine_id);
 

@@ -115,13 +115,13 @@ void CoroutineMainFunc(void* arg)
     // --schedule->current_id;
 }
 
-int CoroutineResume(Schedule* schedule, int coroutine_id)
+int CoroutineResume(Schedule* schedule, int64_t coroutine_id)
 {
     std::map<int64_t, Routine*>::iterator itor = 
         schedule->routines.find(coroutine_id);
     if (itor == schedule->routines.end() || !(itor->second))
     {
-        printf("coroutine %d not exist\n", coroutine_id);
+        printf("coroutine %lld not exist\n", coroutine_id);
         return -1;
     }
     Routine* co = itor->second;
